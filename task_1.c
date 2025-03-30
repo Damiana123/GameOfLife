@@ -73,7 +73,7 @@ void creare_matrice(char ***matrice_init, int n, int m)
 
                 if (nr_v < 2 || nr_v > 3)
                     matrice_noua[i][j] = '+';
-                else if (nr_v == 2 || nr_v == 3)
+                else 
                     matrice_noua[i][j] = 'X';
             }
             else if ((*matrice_init)[i][j] == '+')
@@ -129,8 +129,8 @@ void scrie_in_fisier(FILE *file_out, char **matrice, int n, int m)
 }
 int main(int argc, const char *argv[])
 {
-    FILE *file_in, *file_out;
-    int n, m, i, j, k, nr_test;
+    FILE *file_out;
+    int n, m, i, k, nr_test;
     char **matrice_init, **matrice_noua;
     file_out = fopen(argv[2], "a+");
     if (file_out == NULL)
