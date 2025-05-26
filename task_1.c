@@ -52,10 +52,20 @@ int main(int argc, const char *argv[])
         List *headRoot = NULL;
         createRootList(matrice_init, n, m, &headRoot); // lista pt radacina cu coordonatele celulelor vii initiale
         scrie_matrice_in_fisier(file_out, matrice_init, n, m);
-        initTree(&root, headRoot);
+        initTree(&root, headRoot); // am doar radacina in arbore
         createPreorderTree(&root, matrice_init, k, n, m, file_out);
         deleteList(&headRoot);
     }
+
+    else if (nr_test == 4) // task 4
+    {
+        List *headRoot = NULL;
+        createRootList(matrice_init, n, m, &headRoot); // lista pt radacina cu coordonatele celulelor vii initiale
+        initTree(&root, headRoot);                     // am doar radacina in arbore
+        hamiltonian(&root, matrice_init, k, n, m, file_out); // creez arborele la fel ca la task 3, aflu lantul ham. max, si l afisez
+        deleteList(&headRoot);
+    }
+    
 
     deleteTree(&root);
     deleteStack(&stackTop);
